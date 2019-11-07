@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GridElement : MonoBehaviour
 {
-    [SerializeField] private int _gridId;
-    [SerializeField] private bool _isOccupied;
+    public int GridId;
+    public bool IsOccupied;
 
     void Awake()
     {
