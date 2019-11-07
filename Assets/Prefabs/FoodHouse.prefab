@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8740495748766945831}
   - component: {fileID: 4116937375213894608}
   - component: {fileID: 7936854534623082796}
+  - component: {fileID: 1103235050974305776}
   m_Layer: 0
   m_Name: FoodHouse
   m_TagString: Untagged
@@ -92,3 +93,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1103235050974305776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8481178665641259141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4d97584032bec42b8654b372113baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Info:
+    Id: 3
+    ConnectedGridId: 0
+    UpgradeLevel: 0
+    YRotation: 0
+  _price:
+    WoodPrice: 30
+    FoodPrice: 0
+    StonePrice: 20
+  _name: Food House
+  _isPlaced: 0
+  _resourceProduction: 1

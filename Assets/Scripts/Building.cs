@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 public class Building : MonoBehaviour
 {
-    [SerializeField] private BuildingInfo _info;
-    [SerializeField] private PriceTag _price;
+    public BuildingInfo Info;
+    public PriceTag _price;
 
     [SerializeField] private string _name;
-    [SerializeField] private bool _isPlaced;
+    [HideInInspector] public bool _isPlaced;
 
     [Tooltip("How much resources the building gives")]
     [SerializeField] private int _resourceProduction = 1;
@@ -23,21 +24,22 @@ public class Building : MonoBehaviour
     {
         if(!_isPlaced) return;
 
-        switch (_info.Id)
+        switch (Info.Id)
         {
             case 1:
-                _resources.WoodAmount += (_resourceProduction * _info.UpgradeLevel) * Time.deltaTime;
+                _resources.WoodAmount += (_resourceProduction * Info.UpgradeLevel) * Time.deltaTime;
                 return;
             case 2:
-                _resources.StoneAmount += (_resourceProduction * _info.UpgradeLevel) * Time.deltaTime;
+                _resources.StoneAmount += (_resourceProduction * Info.UpgradeLevel) * Time.deltaTime;
                 return;
             case 3:
-                _resources.FoodAmount += (_resourceProduction * _info.UpgradeLevel) * Time.deltaTime;
+                _resources.FoodAmount += (_resourceProduction * Info.UpgradeLevel) * Time.deltaTime;
                 return;
         }
     }
 }
 
+[Serializable]
 public class PriceTag
 {
     public float WoodPrice;
@@ -45,6 +47,7 @@ public class PriceTag
     public float StonePrice;
 }
 
+[Serializable]
 public class BuildingInfo
 {
     public int Id;

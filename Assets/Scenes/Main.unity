@@ -7187,6 +7187,7 @@ GameObject:
   - component: {fileID: 1503293481}
   - component: {fileID: 1503293480}
   - component: {fileID: 1503293482}
+  - component: {fileID: 1503293483}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7238,6 +7239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentSelectedElement: {fileID: 0}
   CurrentHoveredElement: {fileID: 0}
+  _buildings: {fileID: 0}
   GridElements:
   - {fileID: 1078683560}
   - {fileID: 2095545085}
@@ -7276,6 +7278,24 @@ MonoBehaviour:
   - {fileID: 833964190}
   HoveredColor: {r: 1, g: 1, b: 1, a: 1}
   OccupiedColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1503293483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503293479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3e18bda12e70c419549b526d996cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildables:
+  - {fileID: 2245813852968102681, guid: 2faaf2cdba91f704ea4f8cffb78832c6, type: 3}
+  - {fileID: 841635050728423778, guid: 5330c7cdb5614d24ab30d4536a47b2a0, type: 3}
+  - {fileID: 8481178665641259141, guid: 9d2f2408e68d48946a133bdd32babf89, type: 3}
+  - {fileID: 3329516481596196818, guid: fa05509ab6941374eabbe34c94425c4a, type: 3}
+  _builtObjects: []
 --- !u!1 &1506843349
 GameObject:
   m_ObjectHideFlags: 0

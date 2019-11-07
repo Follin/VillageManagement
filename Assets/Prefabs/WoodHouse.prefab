@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 255281306629180405}
   - component: {fileID: 1387710047159557366}
   - component: {fileID: 2951720935144036805}
-  m_Layer: 0
+  - component: {fileID: 1482026096933062041}
+  m_Layer: 2
   m_Name: WoodHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2245813852968102681}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.299, y: 0.285, z: 0.519}
+  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: -0.3826834}
+  m_LocalPosition: {x: 2.4951534, y: 0, z: -0.4983134}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,3 +93,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1482026096933062041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245813852968102681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4d97584032bec42b8654b372113baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Info:
+    Id: 1
+    ConnectedGridId: 0
+    UpgradeLevel: 0
+    YRotation: 0
+  _price:
+    WoodPrice: 20
+    FoodPrice: 0
+    StonePrice: 0
+  _name: Wood House
+  _isPlaced: 0
+  _resourceProduction: 1

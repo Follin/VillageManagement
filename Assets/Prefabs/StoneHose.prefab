@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3824437234243637815}
   - component: {fileID: 7741230116522578607}
   - component: {fileID: 2258077630868826963}
+  - component: {fileID: -6312989878664114561}
   m_Layer: 0
   m_Name: StoneHose
   m_TagString: Untagged
@@ -92,3 +93,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6312989878664114561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841635050728423778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4d97584032bec42b8654b372113baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Info:
+    Id: 2
+    ConnectedGridId: 0
+    UpgradeLevel: 0
+    YRotation: 0
+  _price:
+    WoodPrice: 20
+    FoodPrice: 0
+    StonePrice: 0
+  _name: Stone House
+  _isPlaced: 0
+  _resourceProduction: 1
