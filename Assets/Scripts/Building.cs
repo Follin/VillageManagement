@@ -7,8 +7,8 @@ public class Building : MonoBehaviour
     public BuildingInfo Info;
     public PriceTag _price;
 
-    [SerializeField] private string _name;
-    [HideInInspector] public bool _isPlaced;
+    public string Name;
+    [HideInInspector] public bool IsPlaced;
 
     [Tooltip("How much resources the building gives")]
     [SerializeField] private int _resourceProduction = 1;
@@ -22,7 +22,7 @@ public class Building : MonoBehaviour
     
     void Update()
     {
-        if(!_isPlaced) return;
+        if(!IsPlaced) return;
 
         switch (Info.Id)
         {
@@ -36,6 +36,15 @@ public class Building : MonoBehaviour
                 _resources.FoodAmount += (_resourceProduction * Info.UpgradeLevel) * Time.deltaTime;
                 return;
         }
+    }
+
+    public void UpgradeBuilding()
+    {
+        Info.UpgradeLevel++;
+
+        _resources.WoodAmount -= _price.WoodPrice;
+        _resources.StoneAmount -= _price.StonePrice;
+        _resources.FoodAmount -= _price.FoodPrice;
     }
 }
 

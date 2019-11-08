@@ -114,6 +114,6 @@ MonoBehaviour:
     WoodPrice: 30
     FoodPrice: 0
     StonePrice: 20
-  _name: Food House
-  _isPlaced: 0
+  Name: Food House
+  IsPlaced: 0
   _resourceProduction: 1

@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    private GridElement _currentSelectedElement;
+    public GridElement CurrentSelectedElement;
     private GridElement _currentHoveredElement;
-    private Buildings _buildings;
+    [HideInInspector] public Buildings Buildings;
 
     [Header("Colors")]
     [SerializeField] Color _hoveredColor = Color.white;
@@ -16,13 +16,13 @@ public class BuildManager : MonoBehaviour
 
     private Color _defaultColor;
     private bool _buildInProgress;
-    private GameObject _currentBuilding;
+    private GameObject _currentBuilding = null;
 
     [HideInInspector] public List<GridElement> GridElements;
 
     void Awake()
     {
-        _buildings = GetComponent<Buildings>();
+        Buildings = GetComponent<Buildings>();
 
         for (int i = 0; i < _gridElementParent.transform.childCount; i++)
             GridElements.Add(_gridElementParent.transform.GetChild(i).GetComponent<GridElement>());
@@ -43,7 +43,7 @@ public class BuildManager : MonoBehaviour
 
         GameObject go = null;
 
-        foreach (GameObject building in _buildings.BuildingsToBuy)
+        foreach (GameObject building in Buildings.BuildingsToBuy)
         {
             Building b = building.GetComponent<Building>();
             if (b.Info.Id == id)
@@ -74,7 +74,7 @@ public class BuildManager : MonoBehaviour
             }
 
             if (Input.GetMouseButton(0))
-                _currentSelectedElement = elementPlacement;
+                CurrentSelectedElement = elementPlacement;
 
             if (elementPlacement != _currentHoveredElement)
                 hit.transform.GetComponent<MeshRenderer>().material.color =
@@ -109,7 +109,7 @@ public class BuildManager : MonoBehaviour
             _buildInProgress = false;
         }
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(2) && _currentBuilding != null)
             _currentBuilding.transform.Rotate(transform.up * 70 * Time.deltaTime);
     }
 
@@ -120,16 +120,18 @@ public class BuildManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            _buildings.BuiltObjects.Add(_currentBuilding);
+            Buildings.BuiltObjects.Add(_currentBuilding);
             _currentHoveredElement.IsOccupied = true;
 
             Building building = _currentBuilding.GetComponent<Building>();
 
             _currentHoveredElement.ConnectedBuilding = building;
-            building._isPlaced = true;
+            building.IsPlaced = true;
 
             building.Info.ConnectedGridId = _currentHoveredElement.GridId;
             building.Info.YRotation = building.transform.localEulerAngles.y;
+
+            building.UpgradeBuilding();
 
             _currentBuilding = null;
             _buildInProgress = false;

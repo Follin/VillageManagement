@@ -6,7 +6,7 @@ public class Shop : MonoBehaviour
 {
     public int ConnectedBuildingId;
 
-    public Building ConnectedBuilding;
+    [HideInInspector] public Building ConnectedBuilding;
     public TextMeshProUGUI ResourceText;
 
     private Button _button;
@@ -23,12 +23,21 @@ public class Shop : MonoBehaviour
         {
             Building b = go.GetComponent<Building>();
             if (b.Info.Id == ConnectedBuildingId)
+            {
                 ConnectedBuilding = b;
+                break;
+            }
         }
+        ResourceText.text = ConnectedBuilding._price.WoodPrice + " Wo | " + ConnectedBuilding._price.StonePrice +
+        " St | " + ConnectedBuilding._price.FoodPrice + " Fo";
     }
     
     void Update()
     {
-        
+        bool canBuy = _resource.WoodAmount >= ConnectedBuilding._price.WoodPrice &&
+            _resource.StoneAmount >= ConnectedBuilding._price.StonePrice &&
+            _resource.FoodAmount >= ConnectedBuilding._price.FoodPrice;
+
+        _button.interactable = canBuy;
     }
 }
